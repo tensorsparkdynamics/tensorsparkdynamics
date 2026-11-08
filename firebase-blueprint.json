@@ -1,0 +1,164 @@
+{
+  "entities": {
+    "WaitlistEntry": {
+      "title": "Waitlist Entry",
+      "description": "User registration for early access to AI products",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "fullName": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "format": "email", "maxLength": 160 },
+        "companyOrOrg": { "type": "string", "maxLength": 160 },
+        "selectedProducts": { "type": "array" },
+        "useCase": { "type": "string", "maxLength": 500 },
+        "priorityPosition": { "type": "number" },
+        "joinedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "fullName", "email", "joinedAt"]
+    },
+    "Applicant": {
+      "title": "Job or Internship Applicant",
+      "description": "Application submitted for full-time jobs, 3-month internships, or fellowships",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "fullName": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "format": "email", "maxLength": 160 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "roleId": { "type": "string", "maxLength": 100 },
+        "roleTitle": { "type": "string", "maxLength": 150 },
+        "appliedDate": { "type": "string", "maxLength": 64 },
+        "currentStage": { "type": "string", "maxLength": 50 },
+        "resumeUrl": { "type": "string", "maxLength": 500 },
+        "githubUrl": { "type": "string", "maxLength": 500 },
+        "portfolioUrl": { "type": "string", "maxLength": 500 },
+        "statementOfPurpose": { "type": "string", "maxLength": 2000 },
+        "yearsExperience": { "type": "string", "maxLength": 50 },
+        "skills": { "type": "array" },
+        "reviewerNotes": { "type": "string", "maxLength": 2000 }
+      },
+      "required": ["id", "fullName", "email", "roleId", "roleTitle", "appliedDate", "currentStage"]
+    },
+    "AgencyInquiry": {
+      "title": "Agency Project Inquiry",
+      "description": "Client consultation and proposal request for agency services",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "clientName": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "format": "email", "maxLength": 160 },
+        "company": { "type": "string", "maxLength": 160 },
+        "serviceType": { "type": "string", "maxLength": 100 },
+        "budgetRange": { "type": "string", "maxLength": 80 },
+        "projectBrief": { "type": "string", "maxLength": 3000 },
+        "timeline": { "type": "string", "maxLength": 80 },
+        "status": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "clientName", "email", "serviceType", "projectBrief", "createdAt"]
+    },
+    "FastTrackCandidate": {
+      "title": "FastTrack Candidate",
+      "description": "Candidate registered for 15-day certified sprint challenge",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "fullName": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "format": "email", "maxLength": 160 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "enrolledDate": { "type": "string", "maxLength": 64 },
+        "feePaid": { "type": "boolean" },
+        "amountCharged": { "type": "string", "maxLength": 40 },
+        "certificateIssued": { "type": "boolean" },
+        "certificateId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "fullName", "email", "enrolledDate"]
+    },
+    "WeeklyReport": {
+      "title": "Weekly Intern Tracker Report",
+      "description": "Milestone delivery and progress update for enrolled interns",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "weekNumber": { "type": "number" },
+        "title": { "type": "string", "maxLength": 160 },
+        "dates": { "type": "string", "maxLength": 80 },
+        "milestoneCompleted": { "type": "string", "maxLength": 2000 },
+        "hoursLogged": { "type": "number" },
+        "supervisorFeedback": { "type": "string", "maxLength": 2000 },
+        "rating": { "type": "number" },
+        "status": { "type": "string", "maxLength": 50 },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "weekNumber", "title", "milestoneCompleted", "status"]
+    },
+    "User": {
+      "title": "User Profile",
+      "description": "Registered account profile for platform access with unique ID and credentials",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "uniqueId": { "type": "string", "maxLength": 64 },
+        "name": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "format": "email", "maxLength": 160 },
+        "role": { "type": "string", "maxLength": 80 },
+        "credentialsSentToEmail": { "type": "string", "format": "email", "maxLength": 160 },
+        "credentialSentAt": { "type": "string", "maxLength": 64 },
+        "accessKey": { "type": "string", "maxLength": 128 },
+        "totalWorkSeconds": { "type": "number" },
+        "lastLoginAt": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "uniqueId", "name", "email", "createdAt"]
+    },
+    "WorkSession": {
+      "title": "Monitored Work Session",
+      "description": "Logged work time and activity record monitored by the system",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "userId": { "type": "string", "maxLength": 128 },
+        "userEmail": { "type": "string", "format": "email", "maxLength": 160 },
+        "userName": { "type": "string", "maxLength": 120 },
+        "startTime": { "type": "string", "maxLength": 64 },
+        "endTime": { "type": "string", "maxLength": 64 },
+        "durationSeconds": { "type": "number" },
+        "durationFormatted": { "type": "string", "maxLength": 64 },
+        "taskDescription": { "type": "string", "maxLength": 500 },
+        "projectTrack": { "type": "string", "maxLength": 120 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "userId", "startTime", "durationSeconds"]
+    }
+  },
+  "firestore": {
+    "/waitlist/{waitlistId}": {
+      "schema": "#entities/WaitlistEntry",
+      "description": "Collection of early access waitlist entries"
+    },
+    "/applicants/{applicantId}": {
+      "schema": "#entities/Applicant",
+      "description": "Collection of career and internship applications"
+    },
+    "/agency_inquiries/{inquiryId}": {
+      "schema": "#entities/AgencyInquiry",
+      "description": "Collection of agency project inquiries"
+    },
+    "/fasttrack_candidates/{candidateId}": {
+      "schema": "#entities/FastTrackCandidate",
+      "description": "Collection of 15-day sprint candidates"
+    },
+    "/weekly_reports/{reportId}": {
+      "schema": "#entities/WeeklyReport",
+      "description": "Collection of internship weekly milestone reports"
+    },
+    "/users/{userId}": {
+      "schema": "#entities/User",
+      "description": "Collection of user profile records"
+    },
+    "/work_sessions/{sessionId}": {
+      "schema": "#entities/WorkSession",
+      "description": "Collection of monitored work sessions"
+    }
+  }
+}

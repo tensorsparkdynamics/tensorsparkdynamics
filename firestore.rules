@@ -1,0 +1,89 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny all unknown collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Primitive validation helpers
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Test connection probe allowed for health checks
+    match /test/{testDoc} {
+      allow read, write: if true;
+    }
+
+    // Waitlist collection
+    match /waitlist/{waitlistId} {
+      allow read: if true;
+      allow create: if isValidId(waitlistId) 
+        && request.resource.data.email is string 
+        && request.resource.data.email.size() <= 160
+        && request.resource.data.fullName is string
+        && request.resource.data.fullName.size() <= 120;
+      allow update, delete: if false;
+    }
+
+    // Career and Internship applicants
+    match /applicants/{applicantId} {
+      allow read: if true;
+      allow create: if isValidId(applicantId)
+        && request.resource.data.fullName is string
+        && request.resource.data.fullName.size() <= 120
+        && request.resource.data.email is string
+        && request.resource.data.email.size() <= 160;
+      allow update: if isValidId(applicantId)
+        && request.resource.data.fullName is string;
+      allow delete: if false;
+    }
+
+    // Agency inquiries and consultations
+    match /agency_inquiries/{inquiryId} {
+      allow read: if true;
+      allow create: if isValidId(inquiryId)
+        && request.resource.data.clientName is string
+        && request.resource.data.email is string
+        && request.resource.data.serviceType is string;
+      allow update, delete: if false;
+    }
+
+    // 15-day FastTrack Candidates
+    match /fasttrack_candidates/{candidateId} {
+      allow read: if true;
+      allow create, update: if isValidId(candidateId)
+        && request.resource.data.fullName is string
+        && request.resource.data.email is string;
+      allow delete: if false;
+    }
+
+    // Weekly Intern Reports
+    match /weekly_reports/{reportId} {
+      allow read: if true;
+      allow create, update: if isValidId(reportId)
+        && request.resource.data.title is string;
+      allow delete: if false;
+    }
+
+    // User accounts
+    match /users/{userId} {
+      allow read: if true;
+      allow create, update: if isValidId(userId)
+        && request.resource.data.name is string
+        && request.resource.data.email is string;
+      allow delete: if false;
+    }
+
+    // Monitored Work Sessions
+    match /work_sessions/{sessionId} {
+      allow read: if true;
+      allow create, update: if isValidId(sessionId)
+        && request.resource.data.userId is string
+        && request.resource.data.durationSeconds is number;
+      allow delete: if false;
+    }
+  }
+}
