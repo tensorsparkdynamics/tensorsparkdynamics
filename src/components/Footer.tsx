@@ -144,7 +144,7 @@ export const Footer: React.FC<FooterProps> = ({
               <div className="flex items-center gap-2.5">
                 <a
                   id="footer-social-instagram"
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/tensorspark.ai/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-pink-500/50 text-neutral-400 hover:text-pink-400 flex items-center gap-2 transition-all group cursor-pointer"
@@ -157,7 +157,7 @@ export const Footer: React.FC<FooterProps> = ({
 
                 <a
                   id="footer-social-linkedin"
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/company/tensorspark-dynamics/?viewAsMember=true"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-sky-500/50 text-neutral-400 hover:text-sky-400 flex items-center gap-2 transition-all group cursor-pointer"
@@ -170,7 +170,7 @@ export const Footer: React.FC<FooterProps> = ({
 
                 <a
                   id="footer-social-x"
-                  href="https://x.com"
+                  href="https://x.com/tensorspark_"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-400 text-neutral-400 hover:text-white flex items-center gap-2 transition-all group cursor-pointer"
@@ -280,7 +280,6 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-cyan-400 transition-colors text-left flex items-center justify-between w-full"
                 >
                   <span>3-Month Internship (PPO)</span>
-                  <span className="text-[10px] font-mono text-emerald-400">₹25k-45k</span>
                 </button>
               </li>
               <li>
@@ -289,7 +288,6 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-indigo-400 transition-colors text-left flex items-center justify-between w-full text-indigo-300 font-medium"
                 >
                   <span>15-Day Certificate Track</span>
-                  <span className="text-[10px] font-mono text-indigo-400">₹2,000 RS</span>
                 </button>
               </li>
               <li>
@@ -309,18 +307,7 @@ export const Footer: React.FC<FooterProps> = ({
               Platform & Leadership
             </h4>
             <ul className="space-y-2">
-              <li>
-                <button
-                  onClick={() => onSelectTab('offer-letter')}
-                  className="text-amber-300 hover:text-amber-200 transition-colors text-left flex items-center justify-between w-full font-medium"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <FileText className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Offer Letter Generator</span>
-                  </span>
-                  <span className="text-[10px] font-mono text-amber-400">Auto-ID</span>
-                </button>
-              </li>
+              
               <li>
                 <button
                   onClick={() => onSelectTab('contact')}
@@ -426,7 +413,7 @@ export const Footer: React.FC<FooterProps> = ({
             <span className="hover:text-neutral-400 cursor-pointer">SLA</span>
             <div className="flex items-center gap-3 pl-2 border-l border-neutral-800">
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/tensorspark.ai/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="hover:text-pink-400 transition-colors"
@@ -436,7 +423,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <Instagram className="w-3.5 h-3.5" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.instagram.com/tensorspark.ai/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="hover:text-sky-400 transition-colors"
@@ -446,7 +433,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <Linkedin className="w-3.5 h-3.5" />
               </a>
               <a 
-                href="https://x.com/tensorspark_/status/2119319199554342993" 
+                href="https://x.com/tensorspark_" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="hover:text-white transition-colors"
